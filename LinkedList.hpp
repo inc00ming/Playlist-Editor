@@ -42,7 +42,7 @@ class LinkedList {
          * PS:prevNode is not the node to be deleted. */
         void deleteNode(Node<T>* prevNode);  
         /* This method is used to clear the contents of the list.*/
-        //void clear();
+        void clear();
         /* This method returns true if the list empty, otherwise returns false.*/
         bool isEmpty() const;
         /* This method returns the current size of the list. */
@@ -231,6 +231,12 @@ void LinkedList<T>::deleteNode(Node<T>* prevNode){
             return ;
         }  
     }
+}
+template<class T>
+void LinkedList<T>::clear(){
+	while(getHead()){
+	    deleteNode(NULL);
+	}
 }
 
 template<class T>
