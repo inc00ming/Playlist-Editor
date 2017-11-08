@@ -26,6 +26,7 @@ class MyStack{
     Node<T>* Top() const;
 	/*Prints the stack entries. This method was already implemented. Do not modify.*/
     void print() const;
+    void insertNode(Node<T>* prev, const T& data);
 };
 
 template <class T>
@@ -39,7 +40,106 @@ void MyStack<T>::print() const{
 }
 
 /* TO-DO: method implementations below */
+template <class T>
+MyStack<T>::MyStack(const MyStack<T>& rhs){
+    Node<T>* temp = rhs.Top();
+    top = new Node<T>(temp->getData());
+    Node<T>* walker = top;
+    temp = temp->getNext();
+    while(temp){
+        insertNode(walker, temp->getData());
+        walker = walker->getNext();
+        temp = temp -> getNext();
+    }
+}
 
+template <class T>
+MyStack<T>& MyStack<T>::operator=(const MyStack<T>& rhs){
+    if(this == &rhs){
+        return *this;
+    }
+    else{
+        while(top){
+	        pop();
+	    }
+	    
+	    Node<T>* temp = rhs.Top();
+        top = new Node<T>(temp->getData());
+        Node<T>* walker = top;
+        temp = temp->getNext();
+        while(temp){
+            insertNode(walker, temp->getData());
+            walker = walker->getNext();
+            temp = temp -> getNext();
+        }
+        
+        return *this;
+    }
+}
 
+template <class T>
+MyStack<T>::~MyStack(){
+	while(top){
+	    pop();
+	}
+}
+
+template <class T>
+MyStack<T>::MyStack(){
+	top = NULL;
+}
+
+template <class T>
+bool MyStack<T>::isEmpty() const{
+    return top == NULL;
+}
+
+template <class T>
+void MyStack<T>::pop(){
+    if(isEmpty()){
+        return ;
+    }
+    else{
+        Node<T>* temp = top;
+        top = top->getNext();
+        delete temp;
+        return ;
+    }
+}
+template <class T>
+void MyStack<T>::push(const T& newItem){
+    if(isEmpty()){
+        top = new Node<T>(newItem);
+        return;
+    }
+    else{
+        Node<T>* newNode = new Node<T>(newItem);
+        newNode->setNext(top);
+        top = newNode;
+        return ;
+    }
+}
+template <class T>
+Node<T>* MyStack<T>::Top() const{
+    return top;
+}
+
+template<class T>
+void MyStack<T>::insertNode(Node<T>* prev, const T& data){
+    if(prev == NULL){
+        top = new Node<T>(data);
+        return ;
+    }
+    else{
+        Node<T>* temp = top;
+        while(temp != prev){
+            temp = temp -> getNext();
+        }
+        Node<T>* newNode = new Node<T>(data);
+        newNode->setNext(temp->getNext());
+        temp->setNext(newNode);
+        return ;
+    }
+}
 #endif /* MYSTACK_HPP */
 
