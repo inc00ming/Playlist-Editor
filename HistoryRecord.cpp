@@ -8,4 +8,21 @@ std::ostream &operator<<(std::ostream &out, const HistoryRecord& t){
     out << t.entry <<">";
     return out;
 };
+
+HistoryRecord::HistoryRecord(){
+	entry = Entry();
+}
+
+HistoryRecord::HistoryRecord(Operation oper, Entry e){
+	operation = oper;
+	entry = e;
+}
+
+Operation HistoryRecord::getOperation() const{
+	return operation; 
+}
+
+Entry HistoryRecord::getEntry() const{
+    return entry;
+}
 /* TO-DO: method implementations below */
