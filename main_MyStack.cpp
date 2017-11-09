@@ -50,27 +50,16 @@ void testCopy(){
 }
 
 int main(int argc, char* argv[]){
-    srand (17);
-    MyStack<tmpClass> s = MyStack<tmpClass>();
-    for (int i = 0; i < 5; ++i){
-        s.push(tmpClass(SSTR(rand()%10), rand()%10));
-    }
-    s.print();
-    MyStack<tmpClass> s2 = s;
-    s2.print();
-    MyStack<tmpClass> s3;
-    s3 = s2;
-    s3.print();
-    
+  
   
     
-    /*
+    
     cout << endl << "TEST 1" << endl;
     testPrint();
 
     cout << endl << "TEST 2" << endl;
     testCopy();
-    */
+    
 
     return 0;
 }

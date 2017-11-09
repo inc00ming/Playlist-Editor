@@ -10,6 +10,32 @@ std::ostream &operator<<(std::ostream &out, const Entry& t){
     return out;
 };
 
+Entry::Entry(){
+    title = "";
+    genre = "";
+    year = "";
+}
 
+Entry::Entry(std::string _title, std::string _genre, std::string _year){
+    title = _title;
+    genre = _genre;
+    year = _year;
+}
+
+string Entry::getTitle() const{
+    return title;
+}
+
+string Entry::getGenre() const{
+    return genre;
+}
+
+string Entry::getYear() const{
+    return year;
+}
+
+bool Entry::operator==(const Entry & rhs) const{
+    return title == rhs.getTitle();
+}
 /* TO-DO: method implementations below */
 
