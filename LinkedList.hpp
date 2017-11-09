@@ -7,12 +7,12 @@
 using namespace std;
 
 /*....DO NOT EDIT BELOW....*/
-template <class T> 
+template <class T>
 class LinkedList {
     private:
         Node<T>* head;
         Node<T>* tail;
-	size_t  size; 
+	size_t  size;
     public:
 
         LinkedList();
@@ -28,19 +28,19 @@ class LinkedList {
         Node<T>* getTail() const;
         /* Set tail of the linked-list*/
         Node<T>* setTail(Node<T>* n);
-        /* Get the previous node of the node that contains the data item. 
+        /* Get the previous node of the node that contains the data item.
          * If the head node contains the data item, this method returns NULL.*/
         Node<T>* findPrev(const T& data) const;
-        /* Get the node that stores the data item. 
+        /* Get the node that stores the data item.
          * If data is not found in the list, this function returns NULL.*/
         Node<T>* findNode(const T& data) const;
-        /* Insert a new node to store the data item. 
-         * The new node should be placed after the “prev” node. 
+        /* Insert a new node to store the data item.
+         * The new node should be placed after the “prev” node.
          * If prev is NULL then insert new node to the head.*/
-        void insertNode(Node<T>* prev, const T& data); 
-        /* This method is used to delete the node that is next to “prevNode”. 
+        void insertNode(Node<T>* prev, const T& data);
+        /* This method is used to delete the node that is next to “prevNode”.
          * PS:prevNode is not the node to be deleted. */
-        void deleteNode(Node<T>* prevNode);  
+        void deleteNode(Node<T>* prevNode);
         /* This method is used to clear the contents of the list.*/
         void clear();
         /* This method returns true if the list empty, otherwise returns false.*/
@@ -82,7 +82,7 @@ LinkedList<T>::LinkedList(const LinkedList<T>& ll){
 }
 
 template <class T>
-LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& ll){ 
+LinkedList<T>& LinkedList<T>::operator=(const LinkedList<T>& ll){
 	if(this == &ll){
 	    return *this;
 	}
@@ -229,7 +229,7 @@ void LinkedList<T>::deleteNode(Node<T>* prevNode){
             delete old;
             size--;
             return ;
-        }  
+        }
     }
 }
 template<class T>
