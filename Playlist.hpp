@@ -20,11 +20,11 @@ public:
 	void load(std::string fileName);
 	/*Inserts a new entry to the end of playlist entries.
 	 *For UNDO operation, you should save the insert operation.*/
-	//void insertEntry(const Entry &e);
+	void insertEntry(const Entry &e);
 	/*Deletes the entry with given title from the list.
 	 *If the delete operation is successful (i.e. the entry with given title is in the playlist and deleted successfully)..
 	 *you should save the this  operation for UNDO operation.*/
-	//void deleteEntry(const std::string &_title);
+	void deleteEntry(const std::string &_title);
 	/*Moves the entry with given title to the left.*/
 	//void moveLeft(const std::string &title);
 	/*Moves the entry with given title to the right.*/

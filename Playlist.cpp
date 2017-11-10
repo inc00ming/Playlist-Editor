@@ -54,7 +54,7 @@ void Playlist::load(std::string fileName){
             else{
                 year = temp;
                 Entry e = Entry(title, genre, year);
-                entries.insertNode(entries.getTail(), e);
+                insertEntry(e);
                 i = 0;
             }
         }
@@ -62,4 +62,23 @@ void Playlist::load(std::string fileName){
     }
 }
 
+void Playlist::insertEntry(const Entry &e){
+    entries.insertNode(entries.getTail(), e);
+    history.push(HistoryRecord(INSERT, e));
+}
+
+void::Playlist::deleteEntry(const std::string &_title){
+    Node<Entry>* temp = entries.getHead();
+    while(temp->getData().getTitle() != _title ){
+        if(temp->getNext() == NULL){
+            return;
+        }
+        else{
+            temp = temp->getNext();
+        }
+    }
+    Node<Entry>* prev = entries.findPrev((const Entry&)temp->getData());
+    entries.deleteNode(prev);
+    history.push(HistoryRecord(DELETE, temp->getData()));
+}
 /* TO-DO: method implementations below */

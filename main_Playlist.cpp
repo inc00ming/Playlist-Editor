@@ -13,8 +13,8 @@ int main(int argc, char* argv[]){
     Playlist pl1 = Playlist();
     pl1.load("list.txt");
     pl1.print();
-    //pl1.printHistory();
-    /*
+    pl1.printHistory();
+
     cout<<"Testing insert"<<endl;
     cout<<"-------------"<<endl;
     pl1.insertEntry(Entry("Rendez-Vous 2"));
@@ -27,7 +27,7 @@ int main(int argc, char* argv[]){
     pl1.deleteEntry("Billie Jean");
     pl1.print();
     pl1.printHistory();
-
+    /*
     cout<<"Testing Move_left"<<endl;
     cout<<"-------------"<<endl;
     pl1.moveLeft("The Four Seasons");

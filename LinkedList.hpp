@@ -156,7 +156,7 @@ Node<T>* LinkedList<T>::findPrev(const T& data) const{
 		return NULL;
 	else{
 		Node<T>* temp = head;
-		while(temp->getNext()->getData() != data && temp != tail){
+		while(!(temp->getNext()->getData() == data) && temp != tail){
 			temp = temp->getNext();
 		}
 		if(temp == tail){
