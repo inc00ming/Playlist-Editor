@@ -77,8 +77,9 @@ void::Playlist::deleteEntry(const std::string &_title){
             temp = temp->getNext();
         }
     }
-    Node<Entry>* prev = entries.findPrev((const Entry&)temp->getData());
-    entries.deleteNode(prev);
     history.push(HistoryRecord(DELETE, temp->getData()));
+    Node<Entry>* prev = entries.findPrev(temp->getData());
+    entries.deleteNode(prev);
+
 }
 /* TO-DO: method implementations below */

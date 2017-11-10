@@ -230,6 +230,11 @@ void LinkedList<T>::deleteNode(Node<T>* prevNode){
             size--;
             return ;
         }
+        else{
+            delete old;
+            size--;
+            return ;
+        }
     }
 }
 template<class T>

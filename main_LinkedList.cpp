@@ -7,7 +7,7 @@
 
 #define SSTR( x ) static_cast< std::ostringstream & >( \
         ( std::ostringstream() << std::dec << x ) ).str()
-		
+
 
 class tmpClass{
     public:
@@ -48,21 +48,26 @@ void testCopy(){
 
 
 int main(int argc, char* argv[]){
-     testPrint();
-     cout << endl;
-     testCopy();
-     
-     
+    LinkedList<int> list1 = LinkedList<int>();
+    for (int i = 0; i < 5; ++i){
+         list1.insertNode(list1.getTail(),i);
+    }
+    list1.deleteNode(NULL);
+    list1.print();
+
+
+
+
      /*LinkedList<int> list1 = LinkedList<int>();
-    
+
     for (int i = 0; i < 5; ++i)
         list1.insertNode(list1.getTail(),i);
-    
+
     LinkedList<int> list2 = list1;
-    
+
     for (int i = 5; i < 10; ++i)
         list2.insertNode(list2.getTail(),i);
-   
+
     list1.print();
     list2.print();
     cout << list1.getSize() << "-" << list2.getSize() << endl;
@@ -83,10 +88,10 @@ int main(int argc, char* argv[]){
     Node<int>* node4 = new Node<int>(4);
     Node<int>* node5 = new Node<int>(5);
     LinkedList<int> list = LinkedList<int>();
-    
+
     cout << "CHECKING EMPTY LIST: " << list.isEmpty() << endl;
     cout << "LIST SIZE:" << list.getSize() << endl;
-    
+
     cout << "NODE-1 ADDED AFTER HEAD" << endl;
     list.insertNode(list.getHead(), 1);
     cout << "LIST HEAD:" << *list.getHead() << endl << "LIST TAIL:" << *list.getTail() << endl;
@@ -98,25 +103,25 @@ int main(int argc, char* argv[]){
     cout << "LIST HEAD:" << *list.getHead() << endl << "LIST TAIL:" << *list.getTail() << endl;
     cout << "LIST SIZE:"<< list.getSize() << endl;
     cout << "LIST:";list.print();
-    
+
     cout << "NODE-3 ADDED AFTER HEAD" << endl;
     list.insertNode(list.getHead(), 3);
     cout << "LIST HEAD:" << *list.getHead() << endl << "LIST TAIL:" << *list.getTail() << endl;
     cout << "LIST SIZE:"<< list.getSize() << endl;
     cout << "LIST:";list.print();
-    
+
     cout << "NODE-4 ADDED AFTER TAIL" << endl;
     list.insertNode(list.getTail(), 4);
     cout << "LIST HEAD:" << *list.getHead() << endl << "LIST TAIL:" << *list.getTail() << endl;
     cout << "LIST SIZE:"<< list.getSize() << endl;
     cout << "LIST:";list.print();
-    
+
     Node<int>* temp = list.findPrev(4);
     cout << *temp->getNext() << endl;
     */
-    
+
     //cout << endl << "TEST 2" << endl;
     //testCopy();
 
     return 0;
-}		
+}
