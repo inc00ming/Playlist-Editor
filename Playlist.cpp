@@ -67,7 +67,7 @@ void Playlist::insertEntry(const Entry &e){
     history.push(HistoryRecord(INSERT, e));
 }
 
-void::Playlist::deleteEntry(const std::string &_title){
+void Playlist::deleteEntry(const std::string &_title){
     Node<Entry>* temp = entries.getHead();
     while(temp->getData().getTitle() != _title ){
         if(temp->getNext() == NULL){
@@ -81,5 +81,47 @@ void::Playlist::deleteEntry(const std::string &_title){
     Node<Entry>* prev = entries.findPrev(temp->getData());
     entries.deleteNode(prev);
 
+}
+
+void Playlist::moveLeft(const std::string &title){
+    Node<Entry>* temp = entries.getHead();
+    while(temp->getData().getTitle() != title ){
+        if(temp->getNext() == NULL){
+            return; // ENTRY DOES NOT EXIST
+        }
+        else{
+            temp = temp->getNext();
+        }
+    }
+    if(temp == entries.getHead()){
+        return ; // HEAD NODE CANT MOVE LEFT
+    }
+    else if(temp == entries.getTail()){
+        cout << "YOU SHOUL READ THIS" << endl;
+        Node<Entry>* firstPrev = entries.findPrev(temp->getData());
+        Node<Entry>* secondPrev = entries.findPrev(firstPrev->getData());
+
+        Node<Entry>* newTail = new Node<Entry>(firstPrev->getData());
+        entries.deleteNode(secondPrev);
+        secondPrev->setNext(temp);
+        entries.setTail(newTail);
+    }
+    else{
+        Node<Entry>* firstPrev = entries.findPrev(temp->getData());
+
+        if(firstPrev == entries.getHead()){
+            Node<Entry>* newHead = new Node<Entry>(temp->getData());
+            Node<Entry>* tempNext = temp->getNext();
+            entries.deleteNode(firstPrev);
+            firstPrev->setNext(tempNext);
+            entries.setHead(newHead);
+        }
+        else{
+            Node<Entry>* secondPrev = entries.findPrev(firstPrev->getData());
+            firstPrev->setNext(temp->getNext());
+            temp->setNext(secondPrev->getNext());
+            secondPrev->setNext(temp);
+        }
+    }
 }
 /* TO-DO: method implementations below */

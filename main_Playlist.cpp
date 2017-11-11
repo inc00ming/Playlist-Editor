@@ -27,13 +27,13 @@ int main(int argc, char* argv[]){
     pl1.deleteEntry("Billie Jean");
     pl1.print();
     pl1.printHistory();
-    /*
+
     cout<<"Testing Move_left"<<endl;
     cout<<"-------------"<<endl;
-    pl1.moveLeft("The Four Seasons");
+    pl1.moveLeft("Nocturne in F major");
     pl1.print();
     pl1.printHistory();
-
+    /*
     cout<<"Testing Reverse"<<endl;
     cout<<"-------------"<<endl;
     pl1.reverse();

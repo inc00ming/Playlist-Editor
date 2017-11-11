@@ -10,3 +10,7 @@ Testing delete
 -------------
 [PLAYLIST SIZE=6]{Sad but True,,1993}{The Four Seasons,Classical,}{Nocturne in F major,,}{Polonaise in D minor,Classical,}{Rendez-Vous 2,,}{Equinoxe 4,,}
 [HISTORY]<DELETE:{Billie Jean,dance-pop,1983}><INSERT:{Equinoxe 4,,}><INSERT:{Rendez-Vous 2,,}><INSERT:{Polonaise in D minor,Classical,}><INSERT:{Nocturne in F major,,}><INSERT:{The Four Seasons,Classical,}><INSERT:{Sad but True,,1993}><INSERT:{Billie Jean,dance-pop,1983}>
+Testing Move_left
+-------------
+[PLAYLIST SIZE=6]{Sad but True,,1993}{Nocturne in F major,,}{The Four Seasons,Classical,}{Polonaise in D minor,Classical,}{Rendez-Vous 2,,}{Equinoxe 4,,}
+[HISTORY]<DELETE:{Billie Jean,dance-pop,1983}><INSERT:{Equinoxe 4,,}><INSERT:{Rendez-Vous 2,,}><INSERT:{Polonaise in D minor,Classical,}><INSERT:{Nocturne in F major,,}><INSERT:{The Four Seasons,Classical,}><INSERT:{Sad but True,,1993}><INSERT:{Billie Jean,dance-pop,1983}>

@@ -26,7 +26,7 @@ public:
 	 *you should save the this  operation for UNDO operation.*/
 	void deleteEntry(const std::string &_title);
 	/*Moves the entry with given title to the left.*/
-	//void moveLeft(const std::string &title);
+	void moveLeft(const std::string &title);
 	/*Moves the entry with given title to the right.*/
 	//void moveRight(const std::string &title);
 	/*Reverse the playlist entries.*/
