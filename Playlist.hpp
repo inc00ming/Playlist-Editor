@@ -28,7 +28,7 @@ public:
 	/*Moves the entry with given title to the left.*/
 	void moveLeft(const std::string &title);
 	/*Moves the entry with given title to the right.*/
-	//void moveRight(const std::string &title);
+	void moveRight(const std::string &title);
 	/*Reverse the playlist entries.*/
 	//void reverse();
 	/*Sort the entries of the playlist from lowest to highest according to their “title”s.*/

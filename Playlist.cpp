@@ -97,7 +97,7 @@ void Playlist::moveLeft(const std::string &title){
         return ; // HEAD NODE CANT MOVE LEFT
     }
     else if(temp == entries.getTail()){
-        cout << "YOU SHOUL READ THIS" << endl;
+        //cout << "YOU SHOUL READ THIS" << endl;
         Node<Entry>* firstPrev = entries.findPrev(temp->getData());
         Node<Entry>* secondPrev = entries.findPrev(firstPrev->getData());
 
@@ -121,6 +121,42 @@ void Playlist::moveLeft(const std::string &title){
             firstPrev->setNext(temp->getNext());
             temp->setNext(secondPrev->getNext());
             secondPrev->setNext(temp);
+        }
+    }
+}
+
+void Playlist::moveRight(const std::string &title){
+    Node<Entry>* temp = entries.getHead();
+    while(temp->getData().getTitle() != title ){
+        if(temp->getNext() == NULL){
+            return; // ENTRY DOES NOT EXIST
+        }
+        else{
+            temp = temp->getNext();
+        }
+    }
+
+    if(temp == entries.getTail()){
+        return ; // TAIL NODE CANT MOVE RIGHT
+    }
+    else if(temp == entries.getHead()){
+        Node<Entry>* headNextNext = temp->getNext()->getNext();
+        Node<Entry>* newHead = new Node<Entry>(temp->getNext()->getData());
+        entries.deleteNode(temp);
+        temp->setNext(headNextNext);
+        entries.setHead(newHead)
+    }
+    else{
+        Node<Entry>* firstNext = temp->getNext();
+        if(firstNext == entries.getTail()){
+            Node<Entry>* newTail = new Node<Entry>(temp->getData());
+            Node<Entry>* firstPrev = entries.findPrev(temp->getData());
+            entries.deleteNode(firstPrev);
+            firstPrev->setNext(firstNext);
+            entries.setTail(newTail);
+        }
+        else{
+            
         }
     }
 }
