@@ -163,4 +163,20 @@ void Playlist::moveRight(const std::string &title){
         }
     }
 }
+
+void Playlist::reverse(){
+    Node<Entry>* walker = entries.getHead();
+    MyStack<Entry> myStack = MyStack<Entry>();
+    while(walker != NULL){
+        myStack.push(walker->getData());
+        walker = walker -> getNext();
+    }
+    entries.clear();
+    while(!(myStack.isEmpty())){
+        entries.insertNode(entries.getTail() ,myStack.Top()->getData()) ;
+        myStack.pop();
+    }
+    history.push(HistoryRecord(REVERSE));
+
+}
 /* TO-DO: method implementations below */

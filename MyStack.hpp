@@ -6,16 +6,16 @@
 template <class T>
 class MyStack{
     private:
-    Node<T> *top;                
+    Node<T> *top;
     public:
     /*Default constructor*/
-    MyStack();                     					
+    MyStack();
     /*copy constructor*/
-    MyStack(const MyStack<T>& rhs);  				
+    MyStack(const MyStack<T>& rhs);
     /*destructor*/
-    ~MyStack(); 
+    ~MyStack();
     /*overloaded = operator*/
-    MyStack<T>& operator=(const MyStack<T>& rhs);  	
+    MyStack<T>& operator=(const MyStack<T>& rhs);
     /*returns true if stack is empty*/
     bool isEmpty() const;
     /*push newItem to stack*/
@@ -62,7 +62,7 @@ MyStack<T>& MyStack<T>::operator=(const MyStack<T>& rhs){
         while(top){
 	        pop();
 	    }
-	    
+
 	    Node<T>* temp = rhs.Top();
         top = new Node<T>(temp->getData());
         Node<T>* walker = top;
@@ -72,7 +72,7 @@ MyStack<T>& MyStack<T>::operator=(const MyStack<T>& rhs){
             walker = walker->getNext();
             temp = temp -> getNext();
         }
-        
+
         return *this;
     }
 }
@@ -106,6 +106,7 @@ void MyStack<T>::pop(){
         return ;
     }
 }
+
 template <class T>
 void MyStack<T>::push(const T& newItem){
     if(isEmpty()){
@@ -119,6 +120,7 @@ void MyStack<T>::push(const T& newItem){
         return ;
     }
 }
+
 template <class T>
 Node<T>* MyStack<T>::Top() const{
     return top;
@@ -141,5 +143,5 @@ void MyStack<T>::insertNode(Node<T>* prev, const T& data){
         return ;
     }
 }
-#endif /* MYSTACK_HPP */
 
+#endif /* MYSTACK_HPP */

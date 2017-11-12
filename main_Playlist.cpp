@@ -34,19 +34,13 @@ int main(int argc, char* argv[]){
     pl1.print();
     pl1.printHistory();
 
-    cout<<"Testing Move_Right"<<endl;
-    cout<<"-------------"<<endl;
-    pl1.moveRight("Sad but True");
-    pl1.print();
-    pl1.printHistory();
 
-    /*
     cout<<"Testing Reverse"<<endl;
     cout<<"-------------"<<endl;
     pl1.reverse();
     pl1.print();
     pl1.printHistory();
-
+    /*
     cout<<"Testing Sort"<<endl;
     cout<<"-------------"<<endl;
     pl1.sort();
