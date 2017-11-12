@@ -144,7 +144,7 @@ void Playlist::moveRight(const std::string &title){
         Node<Entry>* newHead = new Node<Entry>(temp->getNext()->getData());
         entries.deleteNode(temp);
         temp->setNext(headNextNext);
-        entries.setHead(newHead)
+        entries.setHead(newHead);
     }
     else{
         Node<Entry>* firstNext = temp->getNext();
@@ -156,7 +156,10 @@ void Playlist::moveRight(const std::string &title){
             entries.setTail(newTail);
         }
         else{
-            
+            Node<Entry>* firstPrev = entries.findPrev(temp->getData());
+            firstPrev->setNext(firstNext);
+            temp->setNext(firstNext->getNext());
+            firstNext->setNext(temp);
         }
     }
 }

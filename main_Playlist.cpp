@@ -30,9 +30,16 @@ int main(int argc, char* argv[]){
 
     cout<<"Testing Move_left"<<endl;
     cout<<"-------------"<<endl;
-    pl1.moveLeft("Nocturne in F major");
+    pl1.moveLeft("The Four Seasons");
     pl1.print();
     pl1.printHistory();
+
+    cout<<"Testing Move_Right"<<endl;
+    cout<<"-------------"<<endl;
+    pl1.moveRight("Sad but True");
+    pl1.print();
+    pl1.printHistory();
+
     /*
     cout<<"Testing Reverse"<<endl;
     cout<<"-------------"<<endl;
