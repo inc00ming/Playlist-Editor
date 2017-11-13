@@ -179,4 +179,35 @@ void Playlist::reverse(){
     history.push(HistoryRecord(REVERSE));
 
 }
+
+void Playlist::sort(){
+    int size = entries.getSize();
+    Node<Entry> entryArray[size];
+    Node<Entry>* walker = entries.getHead();
+    int minIndex, i = 0, j;
+    Node<Entry> temp;
+
+    while(walker != NULL){
+        entryArray[i++] = walker->getData();
+        walker = walker -> getNext();
+    }
+
+    for(i = 0; i < size; i++){
+        minIndex = i;
+        for(j = i + 1; j < size; j++){
+            if(entryArray[j].getData().getTitle() < entryArray[minIndex].getData().getTitle()){
+                minIndex = j;
+            }
+        }
+        temp = entryArray[i];
+        entryArray[i] = entryArray[minIndex];
+        entryArray[minIndex] = temp;/**/
+    }
+
+    entries.clear();
+
+    for(i = 0; i < size; i++){
+        entries.insertNode(entries.getTail(), entryArray[i].getData());
+    }
+}
 /* TO-DO: method implementations below */

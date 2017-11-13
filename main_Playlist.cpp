@@ -40,13 +40,13 @@ int main(int argc, char* argv[]){
     pl1.reverse();
     pl1.print();
     pl1.printHistory();
-    /*
+
     cout<<"Testing Sort"<<endl;
     cout<<"-------------"<<endl;
     pl1.sort();
     pl1.print();
     pl1.printHistory();
-
+    /*
     cout<<"Testing Merge"<<endl;
     cout<<"-------------"<<endl;
 
