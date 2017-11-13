@@ -246,4 +246,23 @@ void Playlist::merge(const Playlist & pl){
     }
 }
 
+void Playlist::shuffle(){
+    Node<Entry>* walker = entries.getHead();
+    int size = entries.getSize();
+    Node<Entry> entryArray[size];
+    for(int i = 0; i < size; i++){
+        entryArray[i] = walker->getData();
+        walker = walker ->getNext();
+    }
+    for(int i = 0; i < size - 1; i++){
+        Node<Entry> temp = entryArray[i];
+        int random = getRandomNumber(i, size);
+        entryArray[i] = entryArray[random];
+        entryArray[random] = temp;
+    }
+    entries.clear();
+    for(int i = 0; i < size; i++){
+        entries.insertNode(entries.getTail(), entryArray[i].getData());
+    }
+}
 /* TO-DO: method implementations below */

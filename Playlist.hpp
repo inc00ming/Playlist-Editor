@@ -36,7 +36,7 @@ public:
 	/*Merge the sorted lists while keeping the sort order*/
 	void merge(const Playlist & pl);
 	/*Shuffle the playlist entries. Use getRandomNumber function to generate a random number. */
-	//void shuffle();
+	void shuffle();
 	/*UNDO the the operations*/
 	//void undo();
 	/*print the list entries. It is already implemented. DO NOT MODIFY*/

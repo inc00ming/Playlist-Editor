@@ -61,13 +61,13 @@ int main(int argc, char* argv[]){
     pl1.print();
     pl1.printHistory();
 
-    /*
+
     cout<<"Testing Shuffle"<<endl;
     cout<<"-------------"<<endl;
     pl1.shuffle();
     pl1.print();
     pl1.printHistory();
-
+/*
     cout<<"Testing Undo1"<<endl;
     cout<<"-------------"<<endl;
     pl1.undo();
