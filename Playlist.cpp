@@ -265,4 +265,25 @@ void Playlist::shuffle(){
         entries.insertNode(entries.getTail(), entryArray[i].getData());
     }
 }
+
+void Playlist::undo(){
+    if(history.isEmpty())
+        return ;
+    Node<HistoryRecord>* op = history.Top();
+    if(op->getData().getOperation() == REVERSE){
+        reverse();
+        history.pop();
+        history.pop();
+    }
+    else if(op->getData().getOperation() == DELETE){
+        insertEntry(op->getData().getEntry());
+        history.pop();
+        history.pop();
+    }
+    else if(op->getData().getOperation() == INSERT){
+        deleteEntry(op->getData().getEntry());
+        history.pop();
+        history.pop();
+    }
+}
 /* TO-DO: method implementations below */

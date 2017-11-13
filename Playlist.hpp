@@ -38,7 +38,7 @@ public:
 	/*Shuffle the playlist entries. Use getRandomNumber function to generate a random number. */
 	void shuffle();
 	/*UNDO the the operations*/
-	//void undo();
+	void undo();
 	/*print the list entries. It is already implemented. DO NOT MODIFY*/
 	void print();
 	/*Prints the contents of the history stack from top to bottom.*/

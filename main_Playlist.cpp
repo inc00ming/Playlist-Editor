@@ -67,7 +67,7 @@ int main(int argc, char* argv[]){
     pl1.shuffle();
     pl1.print();
     pl1.printHistory();
-/*
+
     cout<<"Testing Undo1"<<endl;
     cout<<"-------------"<<endl;
     pl1.undo();
@@ -79,6 +79,6 @@ int main(int argc, char* argv[]){
     pl1.undo();
     pl1.print();
     pl1.printHistory();
-    */
+    
 	return 0;
 }
