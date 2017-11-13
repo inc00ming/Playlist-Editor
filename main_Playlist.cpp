@@ -46,7 +46,9 @@ int main(int argc, char* argv[]){
     pl1.sort();
     pl1.print();
     pl1.printHistory();
-    /*
+
+
+
     cout<<"Testing Merge"<<endl;
     cout<<"-------------"<<endl;
 
@@ -59,6 +61,7 @@ int main(int argc, char* argv[]){
     pl1.print();
     pl1.printHistory();
 
+    /*
     cout<<"Testing Shuffle"<<endl;
     cout<<"-------------"<<endl;
     pl1.shuffle();

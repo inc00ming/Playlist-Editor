@@ -210,4 +210,40 @@ void Playlist::sort(){
         entries.insertNode(entries.getTail(), entryArray[i].getData());
     }
 }
+
+void Playlist::merge(const Playlist & pl){
+    Node<Entry>* walker = pl.entries.getHead();
+    if(walker == NULL){
+        return ; // OTHER PLAYLIST IS EMPTY
+    }
+    else if(entries.getHead() == NULL){
+        while(walker != NULL){ //CURRENT PLAYLIST IS EMPTY
+            entries.insertNode(entries.getTail(), walker->getData());
+            walker = walker -> getNext();
+        }
+        return ;
+    }
+    else{
+        Node<Entry>* cooper = entries.getHead();
+        Node<Entry>* prev;
+        while(cooper != NULL && walker != NULL){
+            if(cooper->getData().getTitle() < walker->getData().getTitle()){
+                cooper = cooper ->getNext();
+            }
+            else{
+                prev = entries.findPrev(cooper->getData());
+                entries.insertNode(prev, walker->getData());
+                walker = walker ->getNext();
+            }
+        }
+        if(cooper == NULL){
+            while(walker != NULL){
+                entries.insertNode(entries.getTail(), walker->getData());
+                walker = walker -> getNext();
+            }
+            return;
+        }
+    }
+}
+
 /* TO-DO: method implementations below */

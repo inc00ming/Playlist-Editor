@@ -181,6 +181,7 @@ Node<T>* LinkedList<T>::findNode(const T& data) const{
 	}
 	return NULL;
 }
+
 template<class T>
 void LinkedList<T>::insertNode(Node<T>* prev, const T& data){
     if(prev == NULL){
@@ -201,6 +202,7 @@ void LinkedList<T>::insertNode(Node<T>* prev, const T& data){
         Node<T>* newNode = new Node<T>(data);
         newNode->setNext(temp->getNext());
         temp->setNext(newNode);
+        size++;
         return ;
     }
 }
@@ -237,6 +239,7 @@ void LinkedList<T>::deleteNode(Node<T>* prevNode){
         }
     }
 }
+
 template<class T>
 void LinkedList<T>::clear(){
 	while(getHead()){
@@ -254,5 +257,4 @@ size_t LinkedList<T>::getSize() const{
     return size;
 }
 /* end of your implementations*/
-
 #endif

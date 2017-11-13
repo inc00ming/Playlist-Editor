@@ -34,7 +34,7 @@ public:
 	/*Sort the entries of the playlist from lowest to highest according to their “title”s.*/
 	void sort();
 	/*Merge the sorted lists while keeping the sort order*/
-	//void merge(const Playlist & pl);
+	void merge(const Playlist & pl);
 	/*Shuffle the playlist entries. Use getRandomNumber function to generate a random number. */
 	//void shuffle();
 	/*UNDO the the operations*/
