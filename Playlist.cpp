@@ -281,7 +281,7 @@ void Playlist::undo(){
         history.pop();
     }
     else if(op->getData().getOperation() == INSERT){
-        deleteEntry(op->getData().getEntry());
+        deleteEntry(op->getData().getEntry().getTitle());
         history.pop();
         history.pop();
     }

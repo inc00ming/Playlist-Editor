@@ -23,11 +23,11 @@ class LinkedList {
         /* Return head of the linked-list*/
         Node<T>* getHead() const;
         /* Set head of the linked-list*/
-        Node<T>* setHead(Node<T>* n);
+        void setHead(Node<T>* n);
         /* Return tail of the linked-list*/
         Node<T>* getTail() const;
         /* Set tail of the linked-list*/
-        Node<T>* setTail(Node<T>* n);
+        void setTail(Node<T>* n);
         /* Get the previous node of the node that contains the data item.
          * If the head node contains the data item, this method returns NULL.*/
         Node<T>* findPrev(const T& data) const;
@@ -112,18 +112,18 @@ Node<T>* LinkedList<T>::getHead() const{
 }
 
 template <class T>
-Node<T>* LinkedList<T>::setHead(Node<T>* n){
+void LinkedList<T>::setHead(Node<T>* n){
 	if(size == 0){
 		head = n;
 		tail = n;
 		size++;
-		return head;
+                //return head;
 	}
 	else{
 		n->setNext(head);
 		head = n;
 		size++;
-		return head;
+                //return head;
 	}
 }
 
@@ -133,20 +133,20 @@ Node<T>* LinkedList<T>::getTail() const{
 }
 
 template <class T>
-Node<T>* LinkedList<T>::setTail(Node<T>* n) {
+void LinkedList<T>::setTail(Node<T>* n) {
 	if(size == 0){
 		head = n;
 		tail = n;
 		n->setNext(NULL);
 		size++;
-		return tail;
+                //return tail;
 	}
 	else{
 		tail->setNext(n);
 		tail = n;
 		n->setNext(NULL);
 		size++;
-		return tail;
+                //return tail;
 	}
 }
 
