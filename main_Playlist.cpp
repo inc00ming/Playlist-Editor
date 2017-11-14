@@ -79,6 +79,6 @@ int main(int argc, char* argv[]){
     pl1.undo();
     pl1.print();
     pl1.printHistory();
-    
+
 	return 0;
 }

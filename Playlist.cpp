@@ -180,7 +180,7 @@ void Playlist::reverse(){
 
 }
 
-void Playlist::sort(){
+/*void Playlist::sort(){
     int size = entries.getSize();
     Node<Entry> entryArray[size];
     Node<Entry>* walker = entries.getHead();
@@ -201,7 +201,7 @@ void Playlist::sort(){
         }
         temp = entryArray[i];
         entryArray[i] = entryArray[minIndex];
-        entryArray[minIndex] = temp;/**/
+        entryArray[minIndex] = temp;
     }
 
     entries.clear();
@@ -210,7 +210,7 @@ void Playlist::sort(){
         entries.insertNode(entries.getTail(), entryArray[i].getData());
     }
 }
-
+/**/
 void Playlist::merge(const Playlist & pl){
     Node<Entry>* walker = pl.entries.getHead();
     if(walker == NULL){
@@ -285,5 +285,43 @@ void Playlist::undo(){
         history.pop();
         history.pop();
     }
+}
+
+void Playlist::sort(){
+    Node<Entry>* walker;
+    Node<Entry>* cooper;
+    for(walker = entries.getHead(); walker->getNext() != NULL; walker = walker->getNext()){
+        Node<Entry>* min = walker;
+
+        //cout << walker->getData().getTitle() << endl;
+        for(cooper = walker->getNext(); cooper != NULL; cooper = cooper->getNext()){
+            if(cooper->getData().getTitle()<min->getData().getTitle()){
+                min = cooper;
+            }
+        }
+        //swapping min and walker. god help me :D
+        if(min == walker){
+            //cout << "1" << endl;
+            continue; //
+        }
+        //cout << walker->getData() << endl;
+        Node<Entry>* prevMin = entries.findPrev(min->getData());
+        Node<Entry>* prevWalker = entries.findPrev(walker->getData());
+        entries.insertNode(prevMin, walker->getData());
+        entries.insertNode(prevWalker, min->getData());
+        //cout << walker->getData() << endl;
+        entries.deleteNode(prevMin->getNext());
+        if(prevWalker == NULL){
+            entries.deleteNode(entries.getHead());
+        }
+        else{
+            entries.deleteNode(prevWalker->getNext());
+        }
+
+        //walker = prevWalker -> getNext();
+        //print();
+
+    }
+
 }
 /* TO-DO: method implementations below */

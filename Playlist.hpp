@@ -43,6 +43,8 @@ public:
 	void print();
 	/*Prints the contents of the history stack from top to bottom.*/
 	void printHistory();
+
+	//void sort1();
 };
 
 
