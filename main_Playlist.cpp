@@ -11,12 +11,10 @@ int main(int argc, char* argv[]){
     cout<<"Testing load"<<endl;
     cout<<"-------------"<<endl;
     Playlist pl1 = Playlist();
-    pl1.load("mylist.txt");
+    pl1.load("list.txt");
     pl1.print();
-    pl1.sort();
-    pl1.print();
-    //pl1.printHistory();
-/*
+    pl1.printHistory();
+
     cout<<"Testing insert"<<endl;
     cout<<"-------------"<<endl;
     pl1.insertEntry(Entry("Rendez-Vous 2"));
@@ -81,6 +79,6 @@ int main(int argc, char* argv[]){
     pl1.undo();
     pl1.print();
     pl1.printHistory();
-*/
+
 	return 0;
 }
