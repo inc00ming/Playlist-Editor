@@ -290,38 +290,59 @@ void Playlist::undo(){
 void Playlist::sort(){
     Node<Entry>* walker;
     Node<Entry>* cooper;
+    int i = 0, j=0;
     for(walker = entries.getHead(); walker->getNext() != NULL; walker = walker->getNext()){
         Node<Entry>* min = walker;
 
         //cout << walker->getData().getTitle() << endl;
         for(cooper = walker->getNext(); cooper != NULL; cooper = cooper->getNext()){
             if(cooper->getData().getTitle()<min->getData().getTitle()){
+                j++;
                 min = cooper;
             }
         }
         //swapping min and walker. god help me :D
         if(min == walker){
-            //cout << "1" << endl;
             continue; //
         }
-        //cout << walker->getData() << endl;
-        Node<Entry>* prevMin = entries.findPrev(min->getData());
-        Node<Entry>* prevWalker = entries.findPrev(walker->getData());
-        entries.insertNode(prevMin, walker->getData());
-        entries.insertNode(prevWalker, min->getData());
-        //cout << walker->getData() << endl;
-        entries.deleteNode(prevMin->getNext());
-        if(prevWalker == NULL){
-            entries.deleteNode(entries.getHead());
-        }
         else{
-            entries.deleteNode(prevWalker->getNext());
+            Node<Entry>* prevMin = entries.findPrev(min->getData());
+            Node<Entry>* prevWalker = entries.findPrev(walker->getData());
+            Entry minData = min->getData();
+            Entry walkerData = walker->getData();
+            if(prevMin == walker){
+                if(prevWalker == NULL){
+                    entries.deleteNode(prevMin);
+                    entries.deleteNode(prevWalker);
+                    entries.setHead(new Node<Entry>(minData));
+                    entries.insertNode(entries.getHead(), walkerData);
+                    walker = entries.getHead();
+                }
+                else{
+                    entries.deleteNode(prevMin);
+                    entries.deleteNode(prevWalker);
+                    entries.insertNode(prevWalker, minData);
+                    entries.insertNode(prevWalker->getNext(), walkerData);
+                    walker = prevWalker->getNext();
+                }
+            }
+            else{
+                if(prevWalker == NULL){
+                    entries.deleteNode(prevMin);
+                    entries.deleteNode(prevWalker);
+                    entries.setHead(new Node<Entry>(minData));
+                    entries.insertNode(prevMin, walkerData);
+                    walker = entries.getHead();
+                }
+                else{
+                    entries.deleteNode(prevMin);
+                    entries.deleteNode(prevWalker);
+                    entries.insertNode(prevWalker, minData);
+                    entries.insertNode(prevMin, walkerData);
+                    walker = prevWalker->getNext();
+                }
+            }
         }
-
-        //walker = prevWalker -> getNext();
-        //print();
-
     }
-
 }
 /* TO-DO: method implementations below */
