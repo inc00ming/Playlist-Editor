@@ -1,3 +1,4 @@
+// git check
 #include <cstdlib>
 #include <iostream>
 #include <string>
@@ -38,4 +39,3 @@ bool Entry::operator==(const Entry & rhs) const{
     return title == rhs.getTitle();
 }
 /* TO-DO: method implementations below */
-
